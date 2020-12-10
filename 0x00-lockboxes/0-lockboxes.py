@@ -17,4 +17,4 @@ def canUnlockAll(boxes):
                         if boxes[i][j] == boxes[i]:
                             return True
                         else:
-                            return False 
+                            return False

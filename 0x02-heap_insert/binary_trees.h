@@ -1,4 +1,3 @@
-
 #ifndef BINARY
 #define BINARY
 #include <stdio.h>

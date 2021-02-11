@@ -6,7 +6,7 @@
 
 
 int is_palindrome(unsigned long n);
-int main(int ac, char **av);
+/*int main(int ac, char **av);*/
 
 
 #endif /* Palindrome_H */

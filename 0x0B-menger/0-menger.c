@@ -41,7 +41,7 @@ void menger(int level)
 	{
 		for (j = 0; j < size; j++)
 		{
-			if (hashing_space(i, j) != 0)
+			if (character_to_draw(i, j) != 0)
 			{
 				putchar(' ');
 			}

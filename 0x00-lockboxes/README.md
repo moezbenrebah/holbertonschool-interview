@@ -50,4 +50,4 @@ print(canUnlockAll(boxes))
 
 <br>
 
-## Good Luck
+## Best of the Luck

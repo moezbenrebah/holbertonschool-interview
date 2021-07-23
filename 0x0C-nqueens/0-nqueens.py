@@ -2,49 +2,94 @@
 
 import sys
 
-# Number of queens
-print("Enter the number of queens")
-N = int(input())
 
-# chessboard
-# NxN matrix with all elements 0
-board = [[0]*N for _ in range(N)]
+def printBoard(chessboard):
+    """
+    Prints the board
+    Args:
+        board: N*N dimensions chessboard
 
-
-def is_attack(i, j):
-    # checking if there is a queen in row or column
-    for k in range(0, N):
-        if board[i][k] == 1 or board[k][j] == 1:
-            return True
-    # checking diagonals
-    for k in range(0, N):
-        for d in range(0, N):
-            if (k + d == i + j) or (k - d == i - j):
-                if board[k][d] == 1:
-                    return True
-    return False
+    Return: nothing
+    """
+    result = []
+    for i in range(N):
+        for j in range(N):
+            if chessboard[i][j] == 1:
+                result.append([i, j])
+    print(result)
 
 
-def N_queen(n):
-    # if n is 0, solution found
-    if n == 0:
+def check_position(chessboard, row, col):
+    """
+    Check_position: checks if a queen is attacked by another queen
+
+    Args
+    chessboard (list of lists): chessboard with N*N dimensions
+    row (int): row position
+    col int): column position
+    Return:
+        boolean
+    """
+    for i in range(col):
+        if chessboard[row][i]:
+            return False
+    i, j = row, col
+
+    while i >= 0 and j >= 0:
+        if chessboard[i][j]:
+            return False
+        i -= 1
+        j -= 1
+
+    i, j = row, col
+
+    while j >= 0 and i < N:
+        if chessboard[i][j]:
+            return False
+        i = i + 1
+        j = j - 1
+
+    return True
+
+
+def backtrack(chessboard, col):
+    """
+    backtrack: a function to execute backtrack to set queens positions
+
+    Args:
+        board (list of lists): chessboard with N*N dimensions
+        col (int): column position
+    Return:
+        boolean
+    """
+    if col == N:
+        printBoard(chessboard)
         return True
-    for i in range(0, N):
-        for j in range(0, N):
-            '''checking if we can place a queen here or not
-            queen will not be placed if the place is being attacked
-            or already occupied'''
-            if (not(is_attack(i, j))) and (board[i][j] != 1):
-                board[i][j] = 1
-                # recursion
-                # wether we can put the next queen with this arrangment or not
-                if N_queen(n - 1):
-                    return True
-                board[i][j] = 0
+    res = False
+    for i in range(N):
+        if check_position(chessboard, i, col):
+            chessboard[i][col] = 1
+            res = backtrack(chessboard, col + 1) or res
+            chessboard[i][col] = 0
 
-    return False
+    return res
 
 
-N_queen(N)
-for i in board:
-    print(i)
+if __name__ == '__main__':
+
+    if len(sys.argv) != 2:
+        print("Usage: nqueens N")
+        sys.exit(1)
+
+    if not sys.argv[1].isdigit():
+        print("N must be a number")
+        sys.exit(1)
+
+    N = int(sys.argv[1])
+
+    if N < 4:
+        print("N must be at least 4")
+        sys.exit(1)
+
+    chessboard = [[0 for j in range(N)] for i in range(N)]
+    possilibities = backtrack(chessboard, 0)

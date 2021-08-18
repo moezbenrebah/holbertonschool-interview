@@ -1,9 +1,8 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
+"""rain module"""
 
-from typing import List
 
-
-def rain(walls: List[int]) -> int:
+def rain(walls):
     """compute the amount of water that it can be stored"""
     size = len(walls)
 

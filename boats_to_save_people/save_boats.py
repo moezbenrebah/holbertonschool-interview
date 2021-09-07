@@ -18,10 +18,8 @@ def numRescueBoats(people: List[int], limit: int) -> int:
             break
         if (people[first] + people[last] <= limit):
             first += 1
-            last -= 1
-            max_boats += 1
-        else:
-            last -= 1
-            max_boats += 1
+
+        last -= 1
+        max_boats += 1
     
     return max_boats

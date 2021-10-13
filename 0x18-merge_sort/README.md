@@ -32,7 +32,9 @@ Write a function that sorts an array of integers in ascending order using the Me
     - You are allowed to use printf
     - You are allowed to use malloc and free only once (only one call)
     Output:
-    ```
+    
+    
+```
 	19, 48, 99, 71, 13, 52, 96, 73, 86, 7
 
 	Merging...
@@ -73,7 +75,7 @@ Write a function that sorts an array of integers in ascending order using the Me
 	[Done]: 7, 13, 19, 48, 52, 71, 73, 86, 96, 99
 
 	7, 13, 19, 48, 52, 71, 73, 86, 96, 99
-    ```
+```
 
 In the file 0-O, write the Big O notations of the time complexity of the Merge Sort algorithm, with 1 notation per line:
 

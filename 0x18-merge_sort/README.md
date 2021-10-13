@@ -1,4 +1,4 @@
-# Merge Sort //Top - Bottom
+# Merge Sort //Top - Down
 
 
 ## Requirements

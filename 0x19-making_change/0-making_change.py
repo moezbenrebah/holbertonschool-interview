@@ -13,7 +13,7 @@ def makeChange(coins, total):
     i = len(coins) - 1
     arr = []
     while i >= 0:
-        if sum(coins) < total:
+        if not coins or min(coins) > total:
             return -1
         if coins[i] <= total:
             total -= coins[i]

@@ -9,7 +9,7 @@ def makeChange(coins, total):
     if total <= 0:
         return 0
         
-    if min(coins) > total:
+    if not coins or min(coins) > total:
         return -1
 
     INT_MAX = 1<<32

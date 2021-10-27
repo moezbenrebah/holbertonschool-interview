@@ -14,7 +14,7 @@ def makeChange(coins, total):
     coins.sort()
     i = len(coins) - 1
     arr = []
-    while i >= 0:
+    while i > 0:
         if sum(coins) < total:
             return -1
         if coins[i] <= total:

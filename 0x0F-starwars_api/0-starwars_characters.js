@@ -3,20 +3,20 @@
 const request = require('request');
 const url = 'https://swapi-api.hbtn.io/api/films/' + process.argv.slice(2);
 
-const GetData = (l, index) => {
-  request.get(l[index], (error, res, body) => {
-    const ListSize = l.length;
+const getData = (list_1, index) => {
+  request.get(list_1[index], (error, response, body) => {
+    const ListSize = list_1.length;
     if (error) throw error;
     const ReturnValue = JSON.parse(body);
     console.log(ReturnValue.name);
-    if (index < (ListSize - 1)) GetData(l, (index + 1));
+    if (index < (ListSize - 1)) getData(list_1, (index + 1));
   });
 };
 
-request.get(url, (error, res) => {
+request.get(url, (error, response) => {
   if (error) console.log(error);
   else {
-    const ll = JSON.parse(res.body);
-    GetData(ll.characters, 0);
+    const list_2 = JSON.parse(res.body);
+    getData(list_2.characters, 0);
   };
 });

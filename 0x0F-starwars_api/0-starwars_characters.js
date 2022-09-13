@@ -22,9 +22,8 @@ const GetData = (l, index) => {
 };
 
 request.get(url, (error, response) => {
-  if (error) {
-    console.log(error);
-  } else {
+  if (error) console.log(error);
+  else {
     const ll = JSON.parse(res.body);
     GetData(ll.characters, 0);
   }

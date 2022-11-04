@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+""" nqueens module"""
 
 import sys
 
@@ -93,4 +94,3 @@ if __name__ == '__main__':
 
     chessboard = [[0 for j in range(N)] for i in range(N)]
     possilibities = backtrack(chessboard, 0)
-

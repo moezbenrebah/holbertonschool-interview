@@ -136,3 +136,4 @@ if __name__ == "__main__":
             if (queen[0] - queen[1]) == (placement[0] - placement[1]):
                 return False
         return True
+    solve_queens(0, n, solution)
